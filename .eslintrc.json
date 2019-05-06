@@ -1,0 +1,10 @@
+{
+	"extends": [
+		"@hapi/eslint-config-hapi"
+	],
+	"parserOptions": {
+		"ecmaVersion": 9,
+		"parser": "babel-eslint"
+	},
+	"plugins": ["@hapi/eslint-plugin-hapi"]
+}
