@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@hapi/glue": "^6.1.0",
 		"@hapi/hapi": "^18.3.1",
+		"bcrypt": "^3.0.6",
 		"confidence": "^4.0.1",
 		"hapi-auth-jwt2": "^8.4.0",
 		"haute-couture": "^3.3.1",
