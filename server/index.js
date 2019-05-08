@@ -2,7 +2,6 @@
 
 const Glue = require('@hapi/glue');
 const Manifest = require('./manifest');
-const Path = require('path');
 
 
 (async () => {
