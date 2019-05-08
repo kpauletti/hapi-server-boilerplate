@@ -2,8 +2,10 @@
 
 const Glue = require('@hapi/glue');
 const Manifest = require('./manifest');
+const Path = require('path');
 
-(async function () {
+
+(async () => {
 
     const manifest = Manifest.get('/');
     const server = await Glue.compose(
@@ -12,6 +14,25 @@ const Manifest = require('./manifest');
     );
 
     await server.initialize();
+
+    //Registering static serve route here until I can find a better place.
+    //Do not want to put in /routes to avoid */api* prefix
+
+    await server.route(    {
+        method: 'GET',
+        path: '/{path*}',
+        handler: {
+            directory: {
+                path: '.',
+                listing: false,
+                index: true
+            }
+        },
+        options: {
+            auth: false
+        }
+        // handler: (request, h) => null
+    });
 
     await server.start();
 

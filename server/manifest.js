@@ -2,6 +2,7 @@
 
 const Confidence = require('confidence');
 const Toys = require('toys');
+const Path = require('path');
 
 // Glue manifest as a confidence store
 module.exports = new Confidence.Store({
@@ -25,10 +26,22 @@ module.exports = new Confidence.Store({
             production: {
                 request: ['implementation']
             }
+        },
+        routes: {
+            files: {
+                relativeTo: Path.resolve(__dirname, '..', 'client', 'build')
+            }
         }
     },
     register: {
         plugins: [
+            // MUST REGISTER INERT BEFORE ROUTES, OR WILL THROW AN ERROR
+            {
+                plugin: require('@hapi/inert')
+            },
+            {
+                plugin: require('@hapi/vision')
+            },
             {
                 plugin: '../lib', // Main plugin
                 routes: {
