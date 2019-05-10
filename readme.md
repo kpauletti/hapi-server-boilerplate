@@ -7,7 +7,7 @@ Out-of-box configured with:
 * Docker-compose to spin up `postgres` and `PGAdmin 4` containers
 * Objection/Knex query builder via `schwifty`
 * Model schema validation using `Joi` via `schwifty`
-* Example CRUD routes for a mock `user` model
+* Example CRUD routes for a mock user model
 * Example services for separating business logic from route handlers
 * Eslint configured
 
